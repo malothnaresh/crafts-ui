@@ -17,17 +17,16 @@ function Crafts() {
 
   const getData = (filters) => {
     toggleLoader(true);
-    fetch('http://localhost:8080/api/orders')
+    let url = "http://localhost:8080/api/orders";
+    if(filters) {
+      url += `?orderType=${filters.orderType}&orderState=${filters.orderStatus}&fromDate=${filters.fromDate}&toDate=${filters.toDate}`;
+    }
+    fetch(url)
     .then((response) => response.json())
     .then((data) => {
       updateData(data.orders);
       toggleLoader(false);
     });
-  }
-
-  const onUpdateData = (filters) => {
-    console.log(filters);
-    getData(filters);
   }
   
   return (
@@ -36,7 +35,7 @@ function Crafts() {
         <ReactLoading type={"spin"} color={"black"} height={50} width={50} ></ReactLoading>
       </div> :
       <div className="crafts-container">
-        <HeaderComponent updateData={onUpdateData} />
+        <HeaderComponent updateData={(filters) => getData(filters)} />
         <TimeSeriesOrders label={"Orders time series"} data={getTimeSeriesData(data.slice(0,20))} />
         <BarOrders label={"Orders by type"} data={getDataByType(data)} xAxisKey={keys.xAxisKey} yAxisKey={keys.yAxisKey} />
         <BarOrders label={"Orders by state"} data={getDataByStatus(data)} xAxisKey={keys.xAxisKey} yAxisKey={keys.yAxisKey} />

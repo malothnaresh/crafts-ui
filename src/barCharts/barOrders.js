@@ -3,8 +3,7 @@ import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Bar, Toolti
 
 
 function CustomBarChart(props) {  
-  console.log("testing: ", props.data);
-  const { label, data, xAxisKey, yAxisKey, width=500, height=300 } = props;
+  const { label, data, xAxisKey, yAxisKey } = props;
   return (
     <div className="BarChart">
       <h3>{label}</h3>

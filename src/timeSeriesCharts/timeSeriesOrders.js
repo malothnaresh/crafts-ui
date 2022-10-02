@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Label,
   LineChart,
   Line,
   CartesianGrid,
@@ -23,11 +22,10 @@ function TimeSeriesChart({data, label}) {
     bottom2: "dataMin-20",
     animation: true
   });
-  const [showChart, updateShowChart] = useState([true, true]);
+  const [showChart] = useState([true, true]);
 
   const getAxisYDomain = (from, to, ref, offset) => {
     const refData = state.data.slice(from - 1, to);
-    console.log(refData, ref, from, to, offset);
     let [bottom, top] = [refData[0][ref], refData[0][ref]];
     refData.forEach(d => {
       if (d[ref] > top) top = d[ref];
