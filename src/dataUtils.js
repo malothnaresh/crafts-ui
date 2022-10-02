@@ -1,3 +1,38 @@
+export const orderTypes = [
+  {
+    value: '',
+    label: 'All'
+  }, {
+    value: 'cookies',
+    label: 'Cookies'
+  }, {
+    value: 'cake',
+    label: 'Cake'
+  }, {
+    value: 'muffins',
+    label: 'Muffins'
+  }
+];
+
+export const orderStates = [
+  {
+    value: '',
+    label: 'All'
+  }, {
+    value: 'created',
+    label: 'Created'
+  }, {
+    value: 'shipped',
+    label: 'Shipped'
+  }, {
+    value: 'delivered',
+    label: 'Delivered'
+  }, {
+    value: 'cancelled',
+    label: 'Cancelled'
+  }
+]
+
 export const getTimeSeriesData = (data) => {
   const result = [];
   data.forEach(item => {

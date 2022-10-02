@@ -9,7 +9,7 @@
 	margin: 16px;
 }
 
-.react-datepicker-wrapper {
+.react-datepicker-wrapper, .filter-select {
 	width: auto;
 	margin-right: 1rem;
 }
