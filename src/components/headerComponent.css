@@ -1,0 +1,20 @@
+.header-container {
+	display: flex;
+	justify-content: space-between;
+}
+.filters {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin: 16px;
+}
+
+.react-datepicker-wrapper {
+	width: auto;
+	margin-right: 1rem;
+}
+
+.error {
+	font-size: 14px;
+	color: red;
+}
