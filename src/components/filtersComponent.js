@@ -22,8 +22,8 @@ function FiltersComponent({ filters, onFiltersChange, updateData }) {
 				<select className="filter-select" value={filters.orderType} onChange={(e) => onFiltersChange({...filters, orderType: e.target.value})}>
 					{orderTypes.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}
 				</select>
-				<DatePicker selected={filters.fromDate} onChange={(fromDate) => onFiltersChange({...filters, fromDate})} />
-				<DatePicker selected={filters.toDate} onChange={(toDate) => onFiltersChange({...filters, toDate})} minDate={filters.fromDate} />
+				<DatePicker placeholderText="Select from date" selected={filters.fromDate} onChange={(fromDate) => onFiltersChange({...filters, fromDate})} />
+				<DatePicker placeholderText="Select to date" selected={filters.toDate} onChange={(toDate) => onFiltersChange({...filters, toDate})} minDate={filters.fromDate} />
 				<button onClick={onSubmit}>Submit</button>
 			</div>
 			{!validForm && <div className="error">{"Dates selected are not valid"}</div>}
