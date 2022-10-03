@@ -1,11 +1,11 @@
 import FiltersComponent from "./filtersComponent";
 import "./headerComponent.css";
 
-function HeaderComponent({updateData}) {
+function HeaderComponent({onFiltersChange, filters, updateData}) {
   return (
     <div className="header-container">
 			<h1>{"Online Bakery Analysis Dashboard"}</h1>
-      <FiltersComponent updateData={ updateData }/>
+      <FiltersComponent filters={filters} onFiltersChange={ onFiltersChange } updateData={updateData} />
     </div>
   );
 }

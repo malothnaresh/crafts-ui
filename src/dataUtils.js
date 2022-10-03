@@ -1,3 +1,4 @@
+import moment from "moment";
 export const orderTypes = [
   {
     value: '',
@@ -34,14 +35,21 @@ export const orderStates = [
 ]
 
 export const getTimeSeriesData = (data) => {
-  const result = [];
+  const year = 2022;
+  const result = {
+    categories: [`01-${year}`,`02-${year}`,`03-${year}`,`04-${year}`,`05-${year}`,`06-${year}`,`07-${year}`,`08-${year}`,`09-${year}`,`10-${year}`,`11-${year}`,`12-${year}`],
+    orders: [0,0,0,0,0,0,0,0,0,0,0,0],
+    costs: [0,0,0,0,0,0,0,0,0,0,0,0],
+  };
+  const costMap = { 'cookies': 50, 'cake': 500, 'muffins': 100 };
   data.forEach(item => {
-    const costMap = { 'cookies': 100, 'cake': 200, 'muffins': 250 };
-    result.push({
-      cost: costMap[item.orderType],
-      lastUpdated: item.lastUpdated,
-      ordersCount: Math.random() * (10000 - 0 + 1) + 0
-    })
+    for(let i=1; i<=12; i++) {
+      if(moment(Number(item.lastUpdated)).format('M') === `${i}`) {
+        console.log();
+        result.orders[i-1] += 1;
+        result.costs[i-1] += costMap[item.orderType];
+      }
+    }
   });
   return result;
 }

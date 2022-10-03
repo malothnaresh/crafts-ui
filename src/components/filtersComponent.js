@@ -3,13 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { orderStates, orderTypes } from "../dataUtils";
 
-function FiltersComponent({ updateData }) {
-	const [filters, updateFilters] = useState({
-		fromDate: new Date(),
-		toDate: new Date(),
-		orderStatus: '',
-		orderType: ''
-	});
+function FiltersComponent({ filters, onFiltersChange, updateData }) {
 	const [validForm, setValidForm] = useState(true);
 	const onSubmit = () => {
 		if(filters.fromDate > filters.toDate) {
@@ -22,14 +16,14 @@ function FiltersComponent({ updateData }) {
   return (
     <div className="filters-container">
 			<div className="filters">
-				<select className="filter-select" value={filters.orderStatus} onChange={(e) => updateFilters({...filters, orderStatus: e.target.value})}>
+				<select className="filter-select" value={filters.orderStatus} onChange={(e) => onFiltersChange({...filters, orderStatus: e.target.value})}>
 					{orderStates.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}
 				</select>
-				<select className="filter-select" value={filters.orderType} onChange={(e) => updateFilters({...filters, orderType: e.target.value})}>
+				<select className="filter-select" value={filters.orderType} onChange={(e) => onFiltersChange({...filters, orderType: e.target.value})}>
 					{orderTypes.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}
 				</select>
-				<DatePicker selected={filters.fromDate} onChange={(fromDate) => updateFilters({...filters, fromDate})} />
-				<DatePicker selected={filters.toDate} onChange={(toDate) => updateFilters({...filters, toDate})} minDate={filters.fromDate} />
+				<DatePicker selected={filters.fromDate} onChange={(fromDate) => onFiltersChange({...filters, fromDate})} />
+				<DatePicker selected={filters.toDate} onChange={(toDate) => onFiltersChange({...filters, toDate})} minDate={filters.fromDate} />
 				<button onClick={onSubmit}>Submit</button>
 			</div>
 			{!validForm && <div className="error">{"Dates selected are not valid"}</div>}
