@@ -4,8 +4,6 @@ import BarOrders from './barCharts/barOrders';
 import HeaderComponent from "./components/headerComponent";
 import { getDataByType, getDataByStatus, getTopBranches, getTimeSeriesData } from "./dataUtils";
 import ReactLoading from 'react-loading';
-import ApexChart from "./reactApexChart";
-
 import "./Crafts.css";
 import EmptyState from "./components/EmptyState";
 
@@ -50,8 +48,7 @@ function Crafts() {
         <HeaderComponent filters={filters} onFiltersChange={onFiltersChange} updateData={(filters) => getData(filters)} />
         {data.length === 0 ? <EmptyState /> : 
           <React.Fragment>
-            <ApexChart data={getTimeSeriesData(data)} />
-            {/* <TimeSeriesOrders label={"Orders time series"} data={getTimeSeriesData(data)} /> */}
+            <TimeSeriesOrders data={getTimeSeriesData(data)} />
             <BarOrders label={"Orders by type"} data={getDataByType(data)} xAxisKey={keys.xAxisKey} yAxisKey={keys.yAxisKey} />
             <BarOrders label={"Orders by state"} data={getDataByStatus(data)} xAxisKey={keys.xAxisKey} yAxisKey={keys.yAxisKey} />
             <BarOrders label={"Top 5 branches"} data={getTopBranches(data, 5)} xAxisKey={keys.xAxisKey} yAxisKey={keys.yAxisKey}  />
