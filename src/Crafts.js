@@ -12,8 +12,8 @@ function Crafts() {
   const [loader, toggleLoader] = useState(false);
   const [data, updateData] = useState([]);
   const [filters, updateFilters] = useState({
-		fromDate: null,
-		toDate: null,
+		fromDate: new Date(new Date().getFullYear(), 0, 1),
+		toDate: new Date(new Date().getFullYear(), 11, 31),
 		orderStatus: '',
 		orderType: ''
 	});
@@ -21,7 +21,7 @@ function Crafts() {
     getData();
   }, []);
 
-  const getData = (filters) => {
+  const getData = () => {
     toggleLoader(true);
     let url = `${apiBaseUrl}/orders`;
     if(filters) {

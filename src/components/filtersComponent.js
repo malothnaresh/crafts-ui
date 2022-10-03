@@ -26,7 +26,7 @@ function FiltersComponent({ filters, onFiltersChange, updateData }) {
 				<DatePicker placeholderText="Select to date" selected={filters.toDate} onChange={(toDate) => onFiltersChange({...filters, toDate})} minDate={filters.fromDate} />
 				<button onClick={onSubmit}>Submit</button>
 			</div>
-			{!validForm && <div className="error">{"Dates selected are not valid"}</div>}
+			{!validForm && <div className="error filters-error">{"Dates selected are not valid"}</div>}
     </div>
   );
 }

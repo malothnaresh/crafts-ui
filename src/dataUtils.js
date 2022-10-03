@@ -37,7 +37,7 @@ export const orderStates = [
 ]
 
 export const getTimeSeriesData = (data) => {
-  const year = 2022;
+  const year = moment(Number(data[0].lastUpdated)).format('YYYY');
   const result = {
     categories: [`01-${year}`,`02-${year}`,`03-${year}`,`04-${year}`,`05-${year}`,`06-${year}`,`07-${year}`,`08-${year}`,`09-${year}`,`10-${year}`,`11-${year}`,`12-${year}`],
     orders: [0,0,0,0,0,0,0,0,0,0,0,0],
