@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TimeSeriesOrders from './timeSeriesCharts/timeSeriesOrders';
 import BarOrders from './barCharts/barOrders';
 import HeaderComponent from "./components/headerComponent";
-import { getDataByType, getDataByStatus, getTopBranches, getTimeSeriesData, apiBaseUrl } from "./dataUtils";
+import { getDataByType, getDataByStatus, getTopBranches, getTimeSeriesData, apiBaseUrl } from "./utils/dataUtils";
 import ReactLoading from 'react-loading';
 import "./Crafts.css";
 import EmptyState from "./components/EmptyState";

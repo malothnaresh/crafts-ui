@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { orderStates, orderTypes } from "../dataUtils";
+import { orderStates, orderTypes } from "../utils/dataUtils";
 
 function FiltersComponent({ filters, onFiltersChange, updateData }) {
 	const [validForm, setValidForm] = useState(true);
